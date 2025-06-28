@@ -1,0 +1,80 @@
+<!-- marriage-countdown.component.html (Enhanced Wedding Website) -->
+<div class="wedding-website">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-background"></div>
+    <div class="hero-content">
+      <div class="couple-photo">
+        <img src="assets/couple-photo.jpg" alt="{{ coupleNames() }}" class="couple-image">
+      </div>
+      <h1 class="couple-names">{{ coupleNames() }}</h1>
+      <div class="wedding-date-hero">{{ formattedWeddingDate() }}</div>
+      <div class="location">{{ weddingLocation() }}</div>
+      <div class="love-quote">
+        <p>"{{ personalQuote() }}"</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Countdown Section -->
+  <section class="countdown-section">
+    <div class="container">
+      <h2 class="section-title">Our Big Day</h2>
+      <div class="countdown-subtitle">We can't wait to celebrate with you!</div>
+      
+      @if (timeLeft().days > 0) {
+        <div class="countdown-timer">
+          <div class="time-blocks">
+            <div class="time-block">
+              <div class="time-number">{{ timeLeft().days }}</div>
+              <div class="time-label">Days</div>
+            </div>
+            <div class="time-block">
+              <div class="time-number">{{ timeLeft().hours }}</div>
+              <div class="time-label">Hours</div>
+            </div>
+            <div class="time-block">
+              <div class="time-number">{{ timeLeft().minutes }}</div>
+              <div class="time-label">Minutes</div>
+            </div>
+            <div class="time-block">
+              <div class="time-number">{{ timeLeft().seconds }}</div>
+              <div class="time-label">Seconds</div>
+            </div>
+          </div>
+          <div class="countdown-message">
+            <p>{{ getCountdownMessage() }}</p>
+          </div>
+        </div>
+      } @else {
+        <div class="married-announcement">
+          <h3>We're Married! 🎉</h3>
+          <p>Thank you for being part of our special day!</p>
+          <div class="celebration-date">{{ formattedWeddingDate() }}</div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="wedding-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="couple-names-footer">{{ coupleNames() }}</div>
+        <div class="wedding-hashtag">#{{ weddingHashtag() }}</div>
+        <div class="footer-date">{{ formattedWeddingDate() }}</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Elements -->
+  <div class="floating-hearts" aria-hidden="true">
+    @for (heart of hearts(); track heart.id) {
+      <div class="floating-heart" 
+           [style.left.%]="heart.left" 
+           [style.animation-delay.s]="heart.delay">
+        💖
+      </div>
+    }
+  </div>
+</div>
