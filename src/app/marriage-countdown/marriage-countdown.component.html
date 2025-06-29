@@ -5,7 +5,7 @@
     <div class="hero-background"></div>
     <div class="hero-content">
       <div class="couple-photo">
-        <img src="assets/couple-photo.jpg" alt="{{ coupleNames() }}" class="couple-image">
+        <img src="ring.jpeg" alt="{{ coupleNames() }}" class="couple-image">
       </div>
       <h1 class="couple-names">{{ coupleNames() }}</h1>
       <div class="wedding-date-hero">{{ formattedWeddingDate() }}</div>
@@ -42,8 +42,8 @@
               <div class="time-label">Seconds</div>
             </div>
           </div>
-          <div class="countdown-message">
-            <p>{{ getCountdownMessage() }}</p>
+          <div class="love-quote">
+            <p>"{{ loveMessage() }}"</p>
           </div>
         </div>
       } @else {

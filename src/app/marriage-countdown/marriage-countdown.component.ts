@@ -53,6 +53,7 @@ export class MarriageCountdownComponent implements OnInit, OnDestroy {
   weddingDate = signal(new Date('2025-08-22T22:00:00'));
   weddingLocation = signal('Mahdia, Tunisia');
   personalQuote = signal('Two souls, one heart, forever intertwined');
+  loveMessage = signal('Love is not about how many days, months, or years you have been together. Love is about how much you love each other every single day')
   weddingHashtag = signal('Saber&Amani2025');
   
   // 📖 Love Story Information
@@ -173,22 +174,6 @@ export class MarriageCountdownComponent implements OnInit, OnDestroy {
   }
 
   // 🎯 Public Methods for Wedding Information
-
-  /**
-   * Get appropriate countdown message based on time remaining
-   */
-  getCountdownMessage(): string {
-    const days = this.timeLeft().days;
-    
-    if (days === 0) return "It's our wedding day! 🎉";
-    if (days === 1) return "Tomorrow we say 'I do'! 💍";
-    if (days <= 7) return "Less than a week until we're married! 💕";
-    if (days <= 30) return "One month until our forever begins! ✨";
-    if (days <= 60) return "Two months to go - the excitement is building! 🥰";
-    if (days <= 100) return "100 days or less - it's getting real! 💖";
-    
-    return "We can't wait to celebrate with you! 🌟";
-  }
 
   /**
    * Update couple names
